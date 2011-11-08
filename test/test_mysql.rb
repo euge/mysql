@@ -30,7 +30,7 @@ class TC_Mysql < Test::Unit::TestCase
   end
 
   def test_version()
-    assert_equal(20801, Mysql::VERSION)
+    assert_equal(20802, Mysql::VERSION)
   end
 
   def test_init()
@@ -1302,7 +1302,7 @@ class TC_MysqlStmt2 < Test::Unit::TestCase
       @s.free_result()
     end
   end
-  
+
   def test_insert_id()
     if @m.server_version >= 40100 then
       @m.query("create temporary table t (i bigint auto_increment, unique(i))")
@@ -1317,7 +1317,6 @@ class TC_MysqlStmt2 < Test::Unit::TestCase
       assert_equal(2**32+1, @s.insert_id())
     end
   end
-  
 
   def test_num_rows()
     if @m.server_version >= 40100 then
